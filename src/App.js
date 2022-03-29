@@ -1,16 +1,12 @@
-import './App.css';
-import { GridAreasAlternative } from './components/GridAreasAlternative';
+import './App.css'
+import GridLayout from './components/GridLayout'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <body>
-     <GridAreasAlternative />
-      </body>
-      </header>
+      <GridLayout />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
