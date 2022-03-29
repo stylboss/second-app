@@ -26,13 +26,13 @@ function Row({title, fetchUrl, isPoster}) {
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
                 className="row__image"
-                alt={`${movie?.title || movie?.name || movie?.original_title}`}
+                alt={movie?.title || movie?.name || movie?.original_title}
               />
             ) : (
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
                 className="row__image"
-                alt={`${movie?.title || movie?.name || movie?.original_title}`}
+                alt={movie?.title || movie?.name || movie?.original_title}
               />
             )}
           </div>
