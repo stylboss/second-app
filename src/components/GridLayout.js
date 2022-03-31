@@ -2,6 +2,7 @@ import React from 'react'
 import Banner from './Banner'
 import './GridLayout.css'
 import Row from './Row'
+import Sidebar from './Sidebar'
 import Requests from '../config/Requests'
 
 const GridLayout = () => {
@@ -10,18 +11,7 @@ const GridLayout = () => {
       <Banner />
       <div className="flexbox">
         <aside>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt aperiam
-          numquam nesciunt deleniti, delectus nam sed corporis ipsam deserunt
-          provident voluptatibus dolor voluptatem consectetur beatae ea
-          molestias non. Corrupti saepe odit sunt nobis deserunt nostrum
-          explicabo magni repellat consequatur, voluptatem at non molestiae
-          ipsum architecto! Nihil obcaecati tenetur ex consequatur dolor odit
-          reprehenderit cumque consequuntur ab, dolorem omnis alias veniam!
-          Molestiae atque, nemo distinctio aut ut sit quae ducimus dolor
-          exercitationem praesentium excepturi provident maiores at! Illo dolor
-          saepe, porro delectus praesentium natus? Consequatur alias dolore,
-          fugiat omnis qui doloremque maiores aliquid totam, amet sapiente
-          temporibus eos facilis.
+          <Sidebar />
         </aside>
         <article>
           <Row

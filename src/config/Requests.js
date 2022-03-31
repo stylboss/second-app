@@ -9,7 +9,8 @@ const Requests = {
   fetchComedyMovies: `${baseURL}/discover/movie?api_key=${API_KEY}&width_genres=35`,
   fetchHorrorMovies: `${baseURL}/discover/movie?api_key=${API_KEY}&width_genres=27`,
   fetchRomanceMovies: `${baseURL}/discover/movie?api_key=${API_KEY}&width_genres=10749`,
-  fetchDocumentaries: `${baseURL}/discover/movie?api_key=${API_KEY}&width_genres=99`
+  fetchDocumentaries: `${baseURL}/discover/movie?api_key=${API_KEY}&width_genres=99`,
+  fetchIMDbtop250movies: 'https://imdb-api.com/en/API/Top250Movies/k_fqn9nuaf'
 }
 
 export default Requests
