@@ -6,6 +6,7 @@ import axios from 'axios'
 function Sidebar() {
   const [movies, setMovies] = useState([])
   const [filterText, setfilterText] = useState('')
+  const [activeCategory, setActiveCategory] = useState('')
 
   useEffect(() => {
     async function fetchData() {
@@ -15,23 +16,19 @@ function Sidebar() {
     }
     fetchData()
   }, [])
+  console.log(movies)
 
-  const listMovies = []
-  listMovies.push(movies.map(movie => movie.title))
-  console.log(listMovies)
-
-  const handleFilterDisplay = () => {
-    const iterator = listMovies.values()
-    for (let el of iterator) {
-      const values = el.filter(e => e.toLowerCase().includes('b'))
-      console.log(values)
-    }
+  const handleFilterTextChange = e => {
+    setfilterText()
+    let value = e.target.value
+    value.length > 2 && setfilterText(value)
   }
-  const handleFilterTextChange = e =>
-    setfilterText({filterText: e.target.value})
-  handleFilterDisplay()
-
   console.log(filterText)
+
+  const categories = [
+    ...new Set(movies.reduce((acc, elem) => acc.concat(elem.year), [])),
+  ]
+  console.log('reduce', categories)
 
   return (
     <div>
@@ -42,13 +39,31 @@ function Sidebar() {
         onChange={handleFilterTextChange}
       />
       <div className="categories">
-        <select value="" onChange="" className="categories-select">
+        <select
+          value={activeCategory}
+          onChange={e => setActiveCategory(e.target.value)}
+          className="categories-select"
+        >
           <option value="">---</option>
-          <option>___</option>
+          {categories.map(cat => (
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
+          ))}
         </select>
-        <button onClick="">Réinitialiser</button>
+        <button onClick={() => setActiveCategory('')}>Réinitialiser</button>
       </div>
-      <p>movies filtrer </p>
+      {filterText &&
+        movies
+          ?.filter(movie =>
+            movie.title.toLowerCase().includes(filterText.toLowerCase()),
+          )
+          .map(movie => <p key={movie.id}> {movie.title} </p>)}
+      {movies?.map(movie =>
+        movie.year === activeCategory ? (
+          <p key={movie.id}> {movie.title} </p>
+        ) : null
+      )}
     </div>
   )
 }
